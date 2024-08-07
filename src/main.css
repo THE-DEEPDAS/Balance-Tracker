@@ -5,7 +5,7 @@ html, body {
   font-family: 'Arial', sans-serif;
   background-image: url("https://media.istockphoto.com/id/536507269/photo/night-sky-with-bright-stars-and-blue-nebula.jpg?s=612x612&w=0&k=20&c=GyiSGEZ-zAD7SHrhTrlpanoCVpIH2MhLjVHXJ8huWC4=");
   background-size: cover;
-  
+  /* overflow-x: hidden; */
 }
 
 /* Container for Auth Forms */
@@ -22,6 +22,7 @@ html, body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position : relative;
   align-items: center;
   background-image: url("https://img.freepik.com/premium-photo/stack-black-money-coin-banking-currency-business-finance-cash-dollar-treasure-earnings-financial-profit-market-investment-stock-exchange-dark-3d-background-with-success-economy-income_79161-2032.jpg");
   /* background-image: url("https://cdn.dribbble.com/users/583436/screenshots/2375833/media/080350f1f73b8acdb953d059ee27370e.gif"); */
@@ -45,7 +46,7 @@ html, body {
   flex-direction: column;
   width: 100%; /* Full width for form */
   max-width: 400px; /* Max width for form */
-  
+  box-sizing: border-box;
   border-radius: 20px;
   height: 15em;
   padding-top: 1em;
@@ -208,6 +209,7 @@ button.logout:hover {
 .chart-container {
   margin: 20px auto;
   max-width: 500px;
+  text-align: center;
 }
 .form-group .logout{
   
@@ -216,4 +218,90 @@ canvas {
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1024px) {
+  .auth-container {
+    padding: 15px;
+  }
+
+  .auth-form {
+    width: 90%; /* Adjust width for tablets */
+    max-width: 400px; /* Maintain max width for consistency */
+    padding: 1.5em; /* Adjust padding */
+  }
+
+  .container {
+    padding: 15px;
+    max-width: 100%; /* Ensure full width */
+    margin: auto; /* Center container */
+  }
+
+  .chart-container {
+    margin: 20px auto; /* Center chart container */
+    max-width: 100%; /* Full width */
+  }
+}
+
+@media (max-width: 768px) {
+  .auth-container {
+    padding: 15px;
+  }
+
+  .auth-form {
+    width: 100%; /* Full width on mobile phones */
+    max-width: 400px; /* Maintain max width for consistency */
+    padding: 1em; /* Adjust padding */
+  }
+
+  .container {
+    padding: 10px;
+    max-width: 100%; /* Ensure full width */
+    margin: auto; /* Center container */
+  }
+
+  .chart-container {
+    margin: 20px auto; /* Center chart container */
+    max-width: 100%; /* Full width */
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-container {
+    padding: 10px;
+  }
+
+  .auth-form {
+    width: 100%; /* Full width on very small screens */
+    max-width: 100%; /* Ensure full width */
+    padding: 1em; /* Adjust padding */
+  }
+
+  .container {
+    padding: 10px;
+    max-width: 100%; /* Full width container */
+    margin: auto; /* Center container */
+  }
+
+  .chart-container {
+    margin: 20px auto; /* Center chart container */
+    max-width: 100%; /* Full width */
+  }
+
+  .button {
+    font-size: 0.8rem; /* Smaller font size for very small screens */
+  }
+
+  .balance {
+    font-size: 1rem; /* Smaller font size for very small screens */
+  }
+
+  input {
+    font-size: 0.9rem; /* Adjust font size for inputs on very small screens */
+  }
+
+  .transaction-list li {
+    font-size: 0.9rem; /* Smaller font size for transaction items */
+  }
 }
