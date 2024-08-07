@@ -1,13 +1,16 @@
-/* General Styles */
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
   font-family: 'Arial', sans-serif;
+  background-image: url("https://media.istockphoto.com/id/536507269/photo/night-sky-with-bright-stars-and-blue-nebula.jpg?s=612x612&w=0&k=20&c=GyiSGEZ-zAD7SHrhTrlpanoCVpIH2MhLjVHXJ8huWC4=");
+  background-size: cover;
+  
 }
 
 /* Container for Auth Forms */
 .auth-container {
+
   padding: 20px;
   width: 100vw; /* Full width */
   height: 100vh; /* Full height */
@@ -20,6 +23,20 @@ html, body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-image: url("https://img.freepik.com/premium-photo/stack-black-money-coin-banking-currency-business-finance-cash-dollar-treasure-earnings-financial-profit-market-investment-stock-exchange-dark-3d-background-with-success-economy-income_79161-2032.jpg");
+  /* background-image: url("https://cdn.dribbble.com/users/583436/screenshots/2375833/media/080350f1f73b8acdb953d059ee27370e.gif"); */
+  background-position: fixed;
+  background-size: cover;
+}
+.auth-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* Black overlay with 0.4 opacity */
+  z-index: -1; /* Place behind ontent */
 }
 
 /* Styling for Auth Forms */
@@ -28,8 +45,16 @@ html, body {
   flex-direction: column;
   width: 100%; /* Full width for form */
   max-width: 400px; /* Max width for form */
+  
+  border-radius: 20px;
+  height: 15em;
+  padding-top: 1em;
+  padding-bottom: 3em;
+  padding-left: 1em;
+  padding-right: 1em;
+  background-color:rgba(59, 58, 58, 0.5);
+  color: white;
 }
-
 .form-group {
   margin-bottom: 15px;
 }
@@ -60,11 +85,12 @@ html, body {
 }
 
 .button.sign-up {
-  background-color: #28a745; /* Green for signup */
+  background-color: #0056b3;
+ /* Green for signup */
 }
 
 .button.sign-up:hover {
-  background-color: #218838; /* Darker green on hover */
+  background-color: #007bff; /* Darker green on hover */
 }
 
 .button.login {
@@ -92,9 +118,12 @@ html, body {
   font-family: 'Arial', sans-serif;
   max-width: 600px;
   margin: 0 auto;
-  background: linear-gradient(135deg, #f7e7c6, #c8a07b); /* Gradient from gold to a darker shade */
-  border-radius: 10px; /* Rounded corners */
+  /* background: linear-gradient(135deg, #f7e7c6, #c8a07b); Gradient from gold to a darker shade */
+  border-radius: 20px; /* Rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  background: rgba(2, 2, 2, 0.2);
+  box-shadow: 0 0 50px whitesmoke;
+  color: white;
 }
 
 .header {
@@ -133,6 +162,8 @@ input {
 
 button.add-gain {
   background-color: #28a745; /* Green for gain */
+  border-radius: 7px;
+  width: 10em;
 }
 
 button.add-gain:hover {
@@ -140,7 +171,10 @@ button.add-gain:hover {
 }
 
 button.add-spend {
-  background-color: #dc3545; /* Red for spend */
+  background-color: #dc3545;
+  border-radius: 7px; /* Red for spend */
+  width: 10em;
+  margin-top: 10px;
 }
 
 button.add-spend:hover {
@@ -148,7 +182,9 @@ button.add-spend:hover {
 }
 
 button.logout {
-  background-color: #007bff; /* Blue for logout */
+  background-color: #007bff;
+   /* Blue for logout */
+   border-radius: 7px;
 }
 
 button.logout:hover {
@@ -173,7 +209,9 @@ button.logout:hover {
   margin: 20px auto;
   max-width: 500px;
 }
-
+.form-group .logout{
+  
+}
 canvas {
   background: #fff;
   border-radius: 10px;

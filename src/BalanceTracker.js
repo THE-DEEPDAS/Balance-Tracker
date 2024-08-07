@@ -77,7 +77,8 @@ function BalanceTracker({ currentUser, setCurrentUser }) {
     <div className="container">
       <div className="header">
         <h2>Welcome, {currentUser.username}</h2>
-        <h3 className="balance">Current Balance: ${balance.toFixed(2)}</h3>
+        <h3 className="balance" style={{color:"white"
+        }} >Current Balance: ${balance.toFixed(2)}</h3>
       </div>
       <form
         onSubmit={(e) => {
@@ -107,7 +108,7 @@ function BalanceTracker({ currentUser, setCurrentUser }) {
         </button>
       </form>
       <h3>Transaction History:</h3>
-      <ul className="transaction-list">
+      <ul className="transaction-list" style={{color:"black"}}>
         {transactions.map((transaction, index) => (
           <li key={index}>
             {transaction.date} - {transaction.type} of ${transaction.amount.toFixed(2)}

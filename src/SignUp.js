@@ -23,6 +23,7 @@ function SignUp() {
       <div className="form-group">
         <label htmlFor="username">Username:</label>
         <input
+          placeholder='username'
           type="text"
           id="username"
           value={username}
@@ -35,6 +36,7 @@ function SignUp() {
         <input
           type="password"
           id="password"
+          placeholder='password'
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required

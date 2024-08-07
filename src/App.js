@@ -23,14 +23,15 @@ function App() {
           {showLogin ? (
             <>
               <Login setCurrentUser={setCurrentUser} />
-              <p>
-                New user? <span className="toggle-link" onClick={() => setShowLogin(false)}>Sign up here</span>
+              <p style={{color:"white"}}>
+                New user? <span className="toggle-link" onClick={() => setShowLogin(false)} >Sign up here</span>
               </p>
             </>
           ) : (
             <>
               <SignUp />
-              <p>
+              <p style={{color:"white"
+              }}>
                 Already have an account? <span className="toggle-link" onClick={() => setShowLogin(true)}>Login here</span>
               </p>
             </>

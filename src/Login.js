@@ -26,6 +26,7 @@ function Login({ setCurrentUser }) {
           id="username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          placeholder='username'
           required
         />
       </div>
@@ -34,6 +35,7 @@ function Login({ setCurrentUser }) {
         <input
           type="password"
           id="password"
+          placeholder='password'
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
