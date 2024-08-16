@@ -19,7 +19,7 @@ function BalanceTracker({ currentUser, setCurrentUser }) {
     if (storedBalance) {
       setBalance(parseFloat(storedBalance));
     }
-    setTransactions(storedTransactions);
+    setTransactions(storedTransactions); // Ensure transactions are retrieved
   }, [currentUser]);
 
   const handleTransaction = (type) => {
@@ -84,7 +84,7 @@ function BalanceTracker({ currentUser, setCurrentUser }) {
     <div className="container">
       <div className="header">
         <h2>Welcome, {currentUser.username}</h2>
-        <h3 className="balance" style={{color:"white"}}>Current Balance: ${balance.toFixed(2)}</h3>
+        <h3 className="balance" style={{color:"white"}}>Current Balance: ₹{balance.toFixed(2)}</h3>
       </div>
       <form
         onSubmit={(e) => {
@@ -102,7 +102,7 @@ function BalanceTracker({ currentUser, setCurrentUser }) {
           />
         </div>
         <div className="form-group">
-          <label>Description :</label>
+          <label>Description (optional):</label>
           <input
             type="text"
             value={description}
@@ -125,7 +125,7 @@ function BalanceTracker({ currentUser, setCurrentUser }) {
       <ul className="transaction-list" style={{color:"black"}}>
         {transactions.map((transaction, index) => (
           <li key={index}>
-            {transaction.date} - {transaction.type} of ${transaction.amount.toFixed(2)}
+            {transaction.date} - {transaction.type} of ₹{transaction.amount.toFixed(2)}
             {transaction.description && <div>{transaction.description}</div>} {/* Description on new line */}
           </li>
         ))}
