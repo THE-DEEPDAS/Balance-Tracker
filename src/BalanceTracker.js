@@ -9,6 +9,7 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 function BalanceTracker({ currentUser, setCurrentUser }) {
   const [balance, setBalance] = useState(0);
   const [amount, setAmount] = useState('');
+  const [description, setDescription] = useState(''); // State for description
   const [transactions, setTransactions] = useState([]);
 
   useEffect(() => {
@@ -25,13 +26,19 @@ function BalanceTracker({ currentUser, setCurrentUser }) {
     const newBalance = type === 'gain' ? balance + parseFloat(amount) : balance - parseFloat(amount);
     setBalance(newBalance);
     
-    const newTransaction = { type, amount: parseFloat(amount), date: new Date().toLocaleString() };
+    const newTransaction = { 
+      type, 
+      amount: parseFloat(amount), 
+      description: description.trim(), // Ensure no leading/trailing spaces
+      date: new Date().toLocaleString() 
+    };
     const newTransactions = [...transactions, newTransaction];
     setTransactions(newTransactions);
 
     localStorage.setItem(`${currentUser.username}_balance`, newBalance);
     localStorage.setItem(`${currentUser.username}_transactions`, JSON.stringify(newTransactions));
     setAmount('');
+    setDescription(''); // Clear description
   };
 
   const handleLogout = () => {
@@ -77,8 +84,7 @@ function BalanceTracker({ currentUser, setCurrentUser }) {
     <div className="container">
       <div className="header">
         <h2>Welcome, {currentUser.username}</h2>
-        <h3 className="balance" style={{color:"white"
-        }} >Current Balance: ${balance.toFixed(2)}</h3>
+        <h3 className="balance" style={{color:"white"}}>Current Balance: ${balance.toFixed(2)}</h3>
       </div>
       <form
         onSubmit={(e) => {
@@ -93,6 +99,14 @@ function BalanceTracker({ currentUser, setCurrentUser }) {
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
             required
+          />
+        </div>
+        <div className="form-group">
+          <label>Description :</label>
+          <input
+            type="text"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
           />
         </div>
         <button type="submit" className="add-gain">Add Gain</button>
@@ -112,6 +126,7 @@ function BalanceTracker({ currentUser, setCurrentUser }) {
         {transactions.map((transaction, index) => (
           <li key={index}>
             {transaction.date} - {transaction.type} of ${transaction.amount.toFixed(2)}
+            {transaction.description && <div>{transaction.description}</div>} {/* Description on new line */}
           </li>
         ))}
       </ul>
